@@ -6,14 +6,17 @@ import java.util.function.Function;
 public class BinaryHeapMax<T> {
 
     private Object[] heap;
-    int pointer = 0;
+    private int pointer = 0;
 
-    public static void main(String[] args) {
-
-    }
-
-    public static Function<Integer, Integer> parentIndexFunction =
+    public final static Function<Integer, Integer> parentIndexFunction =
             index -> index == 0 ? -1 : (index / 2) - 1 + (index % 2 == 0 ? 0 : 1);
+
+    public final static Function<Integer, Integer> leftNodeIndexFunction =
+            index -> index * 2 + 1;
+
+    public final static Function<Integer, Integer> rightNodeIndexFunction =
+            index -> index * 2 + 2;
+
 
     public BinaryHeapMax() {
         this.heap = new Object[100];
@@ -47,6 +50,12 @@ public class BinaryHeapMax<T> {
     }
 
     private void maxHeapify(int index) {
-        
+        T parent_node = (T) this.heap[index];
+        int leftIndex = this.leftNodeIndexFunction.apply(index);
+        int rightIndex = this.rightNodeIndexFunction.apply(index);
+
+//        if(leftIndex < this.pointer && rightIndex < this.pointer) {
+//            this.heap[index]
+//        }
     }
 }
