@@ -25,3 +25,5 @@ outdated-dependencies.txt
 .project
 .settings
 .factorypath
+
+.ipynb_checkpoints
